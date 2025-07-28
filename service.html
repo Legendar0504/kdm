@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оздоровительный центр "КДМ"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #5D8AA8;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-blue-50 font-sans text-gray-700">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <img src="img/1.png" alt="иконка" width="50" height="50">
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-blue-800">Оздоровительный центр "КДМ"</h1>
+                </div>
+                <div class="flex space-x-1 md:space-x-4">
+                    <a href="index.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Главная</a>
+                    <a href="news.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Новости</a>
+                    <a href="about.html" class="nav-link px-3 py-2 text-blue-800 font-medium">О нас</a>
+                    <a href="gallery.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Галерея</a>
+                    <a href="service.html" class="nav-link px-3 py-2 text-blue-800 font-medium active">Услуги</a>
+                    <a href="contacts.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Контакты</a>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+                <!-- Services Tab -->
+            <section class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-8">Наши услуги</h2>
+                
+                <div class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-blue-800 p-6 md:p-8 flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-bone mr-3"></i> Остеопатия
+                            </h3>
+                            <p class="text-blue-100 mb-4">Мягкие мануальные техники для восстановления баланса в организме и устранения причин заболеваний.</p>
+                            <button onclick="window.location.href='ost.html'" 
+                                    class="bg-white text-blue-800 font-bold py-2 px-4 rounded-full self-start mt-4 hover:bg-blue-100 transition cursor-pointer">
+                                Подробнее
+                            </button>
+                        </div>
+                        <div class="md:w-2/3 p-6 md:p-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="border-l-4 border-blue-300 pl-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">Краниосакральная терапия</h4>
+                                    <p class="text-blue-700 text-sm">Работа с ритмами тела для снятия напряжения и улучшения работы нервной системы.</p>
+                                    <p class="text-blue-600 font-bold mt-2">от 12 000 руб.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-300 pl-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">Висцеральная остеопатия</h4>
+                                    <p class="text-blue-700 text-sm">Коррекция положения и функции внутренних органов.</p>
+                                    <p class="text-blue-600 font-bold mt-2">0 руб.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-300 pl-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">Структуральная остеопатия</h4>
+                                    <p class="text-blue-700 text-sm">Работа с опорно-двигательным аппаратом для устранения болей и дисфункций.</p>
+                                    <p class="text-blue-600 font-bold mt-2">0 руб.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-300 pl-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">Остеопатия для беременных</h4>
+                                    <p class="text-blue-700 text-sm">Специальные техники для подготовки к родам и снятия дискомфорта.</p>
+                                    <p class="text-blue-600 font-bold mt-2">0 руб.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-blue-700 p-6 md:p-8 flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-brain mr-3"></i> Кинезиология
+                            </h3>
+                            <p class="text-blue-100 mb-4">Методика диагностики и коррекции дисбалансов через мышечное тестирование.</p>
+                            <button onclick="window.location.href='kin.html'" 
+                                    class="bg-white text-blue-800 font-bold py-2 px-4 rounded-full self-start mt-4 hover:bg-blue-100 transition cursor-pointer">
+                                Подробнее
+                            </button>
+                        </div>
+                        <div class="md:w-2/3 p-6 md:p-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="border-l-4 border-blue-300 pl-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">Прикладная кинезиология</h4>
+                                    <p class="text-blue-700 text-sm">Диагностика и коррекция функциональных нарушений организма.</p>
+                                    <p class="text-blue-600 font-bold mt-2">от 5 000 руб.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-300 pl-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">Кинезиотейпирование</h4>
+                                    <p class="text-blue-700 text-sm">Наложение специальных пластырей для поддержки мышц и суставов.</p>
+                                    <p class="text-blue-600 font-bold mt-2">от 1 000 руб.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-300 pl-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">Коррекция осанки</h4>
+                                    <p class="text-blue-700 text-sm">Комплексный подход к исправлению нарушений осанки.</p>
+                                    <p class="text-blue-600 font-bold mt-2">от 5 000 руб.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-300 pl-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">Спортивная кинезиология</h4>
+                                    <p class="text-blue-700 text-sm">Оптимизация физической формы и профилактика травм.</p>
+                                    <p class="text-blue-600 font-bold mt-2">от 5 000 руб.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-blue-600 p-6 md:p-8 flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-hands mr-3"></i> Массаж
+                            </h3>
+                            <p class="text-blue-100 mb-4">Разнообразные техники массажа для оздоровления, расслабления и восстановления.</p>
+                            <button onclick="window.location.href='mas.html'" 
+                                    class="bg-white text-blue-800 font-bold py-2 px-4 rounded-full self-start mt-4 hover:bg-blue-100 transition cursor-pointer">
+                                Подробнее
+                            </button>
+                        </div>
+                        <div class="md:w-2/3 p-6 md:p-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="border-l-4 border-blue-300 pl-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">Миофасциальный массаж тела</h4>
+                                    <p class="text-blue-700 text-sm">Направлен на устранение конкретных проблем опорно-двигательного аппарата.</p>
+                                    <p class="text-blue-600 font-bold mt-2">от 3 000 руб.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-300 pl-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">Фейс массаж</h4>
+                                    <p class="text-blue-700 text-sm">Снять напряжение с височно-нижнечелюстного сустава.
+                                        Устранить отёки лица и в области глаз. Расслабления жевательной мышц
+                                    </p>
+                                    <p class="text-blue-600 font-bold mt-2">от 3 500 руб.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-300 pl-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">Лимфодренажный массаж</h4>
+                                    <p class="text-blue-700 text-sm">Улучшение лимфотока и выведение токсинов из организма.</p>
+                                    <p class="text-blue-600 font-bold mt-2">от 5 000 руб.</p>
+                                </div>
+                                <div class="border-l-4 border-blue-300 pl-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">ВИБРОВАКУУМТЕРАПИЯ С ИСПОЛЬЗОВАНИЕМ аппарата НАЛАР, БМС</h4>
+                                    <p class="text-blue-700 text-sm">Борьба с проявлениями целлюлита и улучшение состояния кожи.</p>
+                                    <p class="text-blue-600 font-bold mt-2">от 3 000 руб.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-blue-100 rounded-xl p-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-center text-blue-900 mb-8">Специальные предложения</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="bg-blue-800 p-4 text-center">
+                            <h3 class="text-xl font-bold text-white">Комплекс "Здоровье"</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-blue-700 mb-4">5 сеансов остеопатии + 5 сеансов массажа</p>
+                            <p class="text-2xl font-bold text-blue-800 mb-4">32 000 руб.</p>
+                            <p class="text-sm text-blue-600 mb-4 line-through">40 000 руб.</p>
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="bg-blue-700 p-4 text-center">
+                            <h3 class="text-xl font-bold text-white">Комплекс "Гармония"</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-blue-700 mb-4">3 сеанса кинезиологии + 3 сеанса массажа</p>
+                            <p class="text-2xl font-bold text-blue-800 mb-4">21 000 руб.</p>
+                            <p class="text-sm text-blue-600 mb-4 line-through">27 000 руб.</p>
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                        <div class="bg-blue-600 p-4 text-center">
+                            <h3 class="text-xl font-bold text-white">Комплекс "Релакс"</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-blue-700 mb-4">10 сеансов релакс-массажа</p>
+                            <p class="text-2xl font-bold text-blue-800 mb-4">30 000 руб.</p>
+                            <p class="text-sm text-blue-600 mb-4 line-through">35 000 руб.</p>
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+            <section class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-8">Записаться на прием</h2>
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-blue-800 font-medium mb-2">Ваше имя</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-blue-800 font-medium mb-2">Телефон</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="service" class="block text-blue-800 font-medium mb-2">Услуга</label>
+                                <select id="service" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Выберите услугу</option>
+                                    <option value="osteopathy">Остеопатия</option>
+                                    <option value="kinesiology">Кинезиология</option>
+                                    <option value="massage">Массаж</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="date" class="block text-blue-800 font-medium mb-2">Дата</label>
+                                <input type="date" id="date" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-blue-800 font-medium mb-2">Дополнительная информация</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition w-full md:w-auto">
+                            Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">О центре "КДМ"</h3>
+                    <p class="text-blue-200">Мы помогаем нашим клиентам обрести здоровье и гармонию с помощью современных методик и индивидуального подхода.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Услуги</h3>
+                    <ul class="space-y-2">
+                        <li><a href="ost.html" class="text-blue-200 hover:text-white transition">Остеопатия</a></li>
+                        <li><a href="kin.html" class="text-blue-200 hover:text-white transition">Кинезиология</a></li>
+                        <li><a href="mas.html" class="text-blue-200 hover:text-white transition">Массаж</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Комплексные программы</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Контакты</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-300"></i>
+                            <span class="text-blue-200">"Санкт-Петербург, улица Комиссара Смирнова, 15В,  Выборгский ДК"</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-blue-300"></i>
+                            <span class="text-blue-200">+7 (---) ++-++-++</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-blue-300"></i>
+                            <span class="text-blue-200">@email.ru</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    </form>
+                    <div class="mt-4">
+                        <p class="text-blue-200 mb-2">Мы в соцсетях:</p>
+                        <div class="flex space-x-3">
+<a href="https://m.vk.com/therunoflife?from=groups" 
+   class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition"
+   target="_blank"
+   title="Наша группа ВКонтакте">
+   <i class="fab fa-vk text-white text-lg"></i>
+</a>
+<a href="https://t.me/kinesiologrustam" 
+   class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition"
+   target="_blank"
+   title="Написать в Telegram">
+   <i class="fab fa-telegram text-white text-lg"></i>
+</a>
+                                    <a href="https://wa.me/номер_телефона" 
+                                       class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition"
+                                       target="_blank"
+                                       title="Написать в WhatsApp">
+                                       <i class="fab fa-whatsapp text-white text-lg"></i>
+                                    </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-6 text-center text-blue-300">
+                <p>© 2023 Оздоровительный центр "КДМ". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching
+            const tabs = document.querySelectorAll('[data-tab]');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Simple form validation for contact form
+            const contactForm = document.querySelector('#contacts form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const service = document.getElementById('service').value;
+                    
+                    if (!name || !phone || !service) {
+                        alert('Пожалуйста, заполните все обязательные поля');
+                        return;
+                    }
+                    
+                    alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

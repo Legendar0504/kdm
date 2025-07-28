@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оздоровительный центр "КДМ" - Галерея</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'font-sans', system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #5D8AA8;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Стили для галереи */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .gallery-header h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        .gallery-header h1::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, #5db1ff, #3ca1ff);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 3px;
+        }
+        .gallery-header p {
+            font-size: 1rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1.25rem;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 4 / 3;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 1.25rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        .gallery-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .gallery-description {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+        /* Модальное окно для полноэкранного просмотра */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+            animation: fadeIn 0.3s;
+        }
+        .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+        .modal-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            animation: zoomIn 0.3s;
+        }
+        .close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.75rem;
+            color: #f1f1f1;
+            font-size: 2.5rem;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #bbb;
+            transform: scale(1.1);
+        }
+        @keyframes zoomIn {
+            from {transform: scale(0.9);}
+            to {transform: scale(1);}
+        }
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            .gallery-header h1 {
+                font-size: 1.75rem;
+            }
+            .modal-image {
+                max-width: 95%;
+                max-height: 80%;
+            }
+            .close {
+                font-size: 2rem;
+                top: 1rem;
+                right: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-blue-50 font-sans text-gray-700">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <img src="img/1.png" alt="иконка" width="70" height="70">
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-blue-800">Оздоровительный центр "КДМ"</h1>
+                </div>
+                <div class="flex space-x-1 md:space-x-4">
+                    <a href="index.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Главная</a>
+                    <a href="news.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Новости</a>
+                    <a href="about.html" class="nav-link px-3 py-2 text-blue-800 font-medium">О нас</a>
+                    <a href="gallery.html" class="nav-link px-3 py-2 text-blue-800 font-medium active">Галерея</a>
+                    <a href="service.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Услуги</a>
+                    <a href="contacts.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Контакты</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Табы -->
+        <div class="flex border-b border-gray-200 mb-8">
+            <button class="tab-btn py-2 px-4 font-medium text-blue-600 border-b-2 border-blue-600" data-tab="tab1">Фотогалерея</button>
+            <button class="tab-btn py-2 px-4 font-medium text-gray-500 hover:text-blue-600" data-tab="tab2">Видео</button>
+        </div>
+
+        <!-- Контент табов -->
+        <div id="tab1" class="tab-content active">
+            <!-- Галерея изображений -->
+            <div class="gallery-container">
+                <div class="gallery-header">
+                    <h1>Фотогалерея центра</h1>
+                    <p>Посмотрите фотографии нашего центра и убедитесь в качестве наших услуг</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openModal('img/1.png')">
+                        <img src="img/1.png" alt="Наш центр" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Наш центр</div>
+                            <div class="gallery-description">Комфортные условия для вашего оздоровления</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" onclick="openModal('https://source.unsplash.com/random/600x400?spa')">
+                        <img src="https://source.unsplash.com/random/600x400?spa" alt="SPA-зона" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">SPA-зона</div>
+                            <div class="gallery-description">Релакс и восстановление</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" onclick="openModal('https://source.unsplash.com/random/600x400?massage')">
+                        <img src="https://source.unsplash.com/random/600x400?massage" alt="Массаж" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Массажные кабинеты</div>
+                            <div class="gallery-description">Профессиональные массажисты</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" onclick="openModal('https://source.unsplash.com/random/600x400?pool')">
+                        <img src="https://source.unsplash.com/random/600x400?pool" alt="Бассейн" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Бассейн</div>
+                            <div class="gallery-description">Водные процедуры для здоровья</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" onclick="openModal('https://source.unsplash.com/random/600x400?gym')">
+                        <img src="https://source.unsplash.com/random/600x400?gym" alt="Тренажерный зал" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Тренажерный зал</div>
+                            <div class="gallery-description">Современное оборудование</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" onclick="openModal('https://source.unsplash.com/random/600x400?yoga')">
+                        <img src="https://source.unsplash.com/random/600x400?yoga" alt="Йога" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <div class="gallery-title">Зал для йоги</div>
+                            <div class="gallery-description">Гармония тела и духа</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab2" class="tab-content">
+            <div class="text-center py-10">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Видео о нашем центре</h2>
+                <p class="text-gray-600 mb-6">Здесь будут размещены видео материалы о нашем центре</p>
+                <div class="bg-gray-100 rounded-lg p-8 max-w-2xl mx-auto">
+                    <i class="fas fa-video text-5xl text-gray-300 mb-4"></i>
+                    <p class="text-gray-500">Видео раздел в разработке</p>
+                </div>
+            </div>
+        </div>
+
+    <!-- Модальное окно для полноэкранного просмотра -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="expandedImage" class="modal-image">
+        </div>
+    </div>
+
+    <script>
+        // Функционал табов
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Убираем активный класс у всех кнопок
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('text-blue-600', 'border-blue-600');
+                    b.classList.add('text-gray-500');
+                });
+                
+                // Добавляем активный класс текущей кнопке
+                this.classList.add('text-blue-600', 'border-blue-600');
+                this.classList.remove('text-gray-500');
+                
+                // Скрываем все табы
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Показываем выбранный таб
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Функция для открытия модального окна с изображением
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('expandedImage');
+            
+            modal.style.display = 'flex';
+            modalImg.src = imageSrc;
+            
+            // Закрытие при клике вне изображения
+            modal.onclick = function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            }
+            
+            // Закрытие по клавише Esc
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        }
+        
+        // Функция для закрытия модального окна
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

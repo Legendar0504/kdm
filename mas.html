@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оздоровительный центр "КДМ"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #5D8AA8;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-blue-50 font-sans text-gray-700">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <img src="img/1.png" alt="иконка" width="50" height="50">
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-blue-800">Оздоровительный центр "КДМ"</h1>
+                </div>
+                <div class="flex space-x-1 md:space-x-4">
+                    <a href="index.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Главная</a>
+                    <a href="news.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Новости</a>
+                    <a href="about.html" class="nav-link px-3 py-2 text-blue-800 font-medium">О нас</a>
+                    <a href="gallery.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Галерея</a>
+                    <a href="service.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Услуги</a>
+                    <a href="contacts.html" class="nav-link px-3 py-2 text-blue-800 font-medium">Контакты</a>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- About Tab -->
+            <section class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-8">Массажист</h2>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 p-6 md:p-8">
+                            <p style="color: #1e40af; margin-bottom: 1.5rem; line-height: 1.5; font-weight: bold;">П</p>
+                            <p style="color: #1e40af; margin-bottom: 1.5rem; line-height: 1.5; font-weight: 350;">Н</p>
+                            
+                            <div class="bg-blue-100 p-4 rounded-lg">
+                                <h3 class="font-bold text-blue-900 mb-2">Наша миссия:</h3>
+                                <p class="text-blue-800">Помочь каждому клиенту обрести гармонию тела и духа, используя безопасные и эффективные методы восстановления здоровья.</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <img src="img/1.png" 
+                                 alt="Интерьер центра" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <!-- Contacts Tab -->
+        <div id="contacts" class="tab-content">
+            <section class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-8">Контакты</h2>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 p-6 md:p-8">
+                            <h3 class="text-xl font-bold text-blue-800 mb-6">Как нас найти</h3>
+                            
+                            <div class="flex items-start mb-6">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-blue-800 mb-1">Адрес</h4>
+                                    <p class="text-blue-700">"Санкт-Петербург, улица Комиссара Смирнова, 15В,  Выборгский ДК"</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-6">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-blue-800 mb-1">Телефоны</h4>
+                                    <p class="text-blue-700">+7 (---) ++-++-++</p>
+                                    <p class="text-blue-700">+7 (---) ++-++-++</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-6">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-blue-800 mb-1">Email</h4>
+                                    <p class="text-blue-700">@email.ru</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-6">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i class="fas fa-clock text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-blue-800 mb-1">Режим работы</h4>
+                                    <p class="text-blue-700">Пн-Пт: 9:00 - 21:00</p>
+                                    <p class="text-blue-700">Сб-Вс: 10:00 - 18:00</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <h4 class="font-bold text-blue-800 mb-4">Мы в социальных сетях</h4>
+                                <div class="flex space-x-4">
+                                     <a href="https://m.vk.com/therunoflife?from=groups" 
+                                           class="bg-blue-100 hover:bg-blue-200 w-10 h-10 rounded-full flex items-center justify-center transition"
+                                           target="_blank"
+                                           title="Наша группа ВКонтакте">
+                                            <i class="fab fa-vk text-blue-600"></i>
+                                        </a>
+                                    <a href="https://t.me/kinesiologrustam" 
+                                           class="bg-blue-100 hover:bg-blue-200 w-10 h-10 rounded-full flex items-center justify-center transition"
+                                        target="_blank">
+                                      <i class="fab fa-telegram text-blue-600"></i>
+                                    </a>
+                                    <a href="https://wa.me/номер_телефона сюда вотсапп" 
+                                       class="bg-blue-100 hover:bg-blue-200 w-10 h-10 rounded-full flex items-center justify-center transition"
+                                       target="_blank"
+                                       title="Написать в WhatsApp">
+                                        <i class="fab fa-whatsapp text-blue-600"></i>
+                                       </a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2">
+                        <div class="h-full">
+                            <iframe 
+                                src="https://yandex.ru/map-widget/v1/?um=constructor%3A9f6a3b4b5c6d7e8f9a0b1c2d3e4f5g6h&amp;mode=search&amp;text=улица%20Комиссара%20Смирнова%2C%2015В%2C%20подъезд%207&amp;z=17" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0"
+                                allowfullscreen="true"
+                                style="position:relative;"
+                                class="min-h-96 md:min-h-full">
+                            </iframe>
+                        </div>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-900 mb-8">Записаться на прием</h2>
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-blue-800 font-medium mb-2">Ваше имя</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-blue-800 font-medium mb-2">Телефон</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="service" class="block text-blue-800 font-medium mb-2">Услуга</label>
+                                <select id="service" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Выберите услугу</option>
+                                    <option value="osteopathy">Остеопатия</option>
+                                    <option value="kinesiology">Кинезиология</option>
+                                    <option value="massage">Массаж</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="date" class="block text-blue-800 font-medium mb-2">Дата</label>
+                                <input type="date" id="date" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-blue-800 font-medium mb-2">Дополнительная информация</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition w-full md:w-auto">
+                            Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">О центре "КДМ"</h3>
+                    <p class="text-blue-200">Мы помогаем нашим клиентам обрести здоровье и гармонию с помощью современных методик и индивидуального подхода.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Услуги</h3>
+                    <ul class="space-y-2">
+                        <li><a href="ost.html" class="text-blue-200 hover:text-white transition">Остеопатия</a></li>
+                        <li><a href="kin.html" class="text-blue-200 hover:text-white transition">Кинезиология</a></li>
+                        <li><a href="mas.html" class="text-blue-200 hover:text-white transition">Массаж</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition">Комплексные программы</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Контакты</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-300"></i>
+                            <span class="text-blue-200">"Санкт-Петербург, улица Комиссара Смирнова, 15В,  Выборгский ДК"</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-blue-300"></i>
+                            <span class="text-blue-200">+7 (---) ++-++-++</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-blue-300"></i>
+                            <span class="text-blue-200">@email.ru</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    </form>
+                    <div class="mt-4">
+                        <p class="text-blue-200 mb-2">Мы в соцсетях:</p>
+                        <div class="flex space-x-3">
+<a href="https://m.vk.com/therunoflife?from=groups" 
+   class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition"
+   target="_blank"
+   title="Наша группа ВКонтакте">
+   <i class="fab fa-vk text-white text-lg"></i>
+</a>
+<a href="https://t.me/kinesiologrustam" 
+   class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition"
+   target="_blank"
+   title="Написать в Telegram">
+   <i class="fab fa-telegram text-white text-lg"></i>
+</a>
+                                    <a href="https://wa.me/номер_телефона" 
+                                       class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition"
+                                       target="_blank"
+                                       title="Написать в WhatsApp">
+                                       <i class="fab fa-whatsapp text-white text-lg"></i>
+                                    </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-6 text-center text-blue-300">
+                <p>© 2023 Оздоровительный центр "КДМ". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching
+            const tabs = document.querySelectorAll('[data-tab]');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Simple form validation for contact form
+            const contactForm = document.querySelector('#contacts form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const service = document.getElementById('service').value;
+                    
+                    if (!name || !phone || !service) {
+                        alert('Пожалуйста, заполните все обязательные поля');
+                        return;
+                    }
+                    
+                    alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
